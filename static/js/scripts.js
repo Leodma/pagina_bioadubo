@@ -1,0 +1,213 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Existing header and footer loading logic
+    fetch('header.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+        });
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('footer-placeholder').innerHTML = html;
+        });
+
+    // Generic Carousel Functionality
+    // This function can be reused for any carousel with the specified structure
+    function setupCarousel(containerId, prevBtnId, nextBtnId) {
+        const carousel = document.getElementById(containerId);
+        const prevBtn = document.getElementById(prevBtnId);
+        const nextBtn = document.getElementById(nextBtnId);
+
+        if (carousel && prevBtn && nextBtn) {
+            // Calculate scroll amount based on the first item's width and margin
+            const firstCarouselItem = carousel.querySelector('.carousel-item, .carousel-image-item');
+            let scrollAmount = 0;
+
+            const updateScrollAmount = () => {
+                if (firstCarouselItem) {
+                    const itemStyle = window.getComputedStyle(firstCarouselItem);
+                    const marginRight = parseFloat(itemStyle.marginRight);
+                    scrollAmount = firstCarouselItem.offsetWidth + marginRight;
+                }
+            };
+
+            updateScrollAmount();
+            window.addEventListener('resize', updateScrollAmount);
+
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Optional: Hide/show arrows based on scroll position
+            const updateArrowVisibility = () => {
+                if (carousel.scrollLeft <= 0) {
+                    prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                } else {
+                    prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+
+                // Allow a small tolerance for floating point errors in scrollWidth/clientWidth
+                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1) {
+                    nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                } else {
+                    nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+            };
+
+            carousel.addEventListener('scroll', updateArrowVisibility);
+            // Initial check for arrow visibility
+            updateArrowVisibility();
+        }
+    }
+
+    // Setup for the main product carousel (from index.html)
+    setupCarousel('carousel-container', 'prev-btn', 'next-btn');
+
+    // Setup for "Before" images carousel
+    setupCarousel('before-carousel-container', 'prev-before-btn', 'next-before-btn');
+
+    // Setup for "After" images carousel
+    setupCarousel('after-carousel-container', 'prev-after-btn', 'next-after-btn');
+
+
+    // ApexCharts and Intersection Observer for animated graph
+    // Load ApexCharts library dynamically
+    const apexChartsScript = document.createElement('script');
+    apexChartsScript.src = 'https://cdn.jsdelivr.net/npm/apexcharts';
+    apexChartsScript.onload = () => {
+        // Map to keep track of initialized charts by their div ID
+        const initializedCharts = new Map();
+
+        // Find all chart divs on the page
+        document.querySelectorAll('div[data-chart-config]').forEach(chartDiv => {
+            const chartConfig = JSON.parse(chartDiv.dataset.chartConfig);
+            const divId = chartDiv.id;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Check if the target is intersecting AND if this chart has NOT been initialized yet
+                    if (entry.isIntersecting && !initializedCharts.has(divId)) {
+                        const options = {
+                            chart: {
+                                type: chartConfig.type || 'bar', // Default to bar chart
+                                height: chartConfig.height || 350,
+                                animations: {
+                                    enabled: true,
+                                    easing: 'easeinout',
+                                    speed: 800,
+                                    animateGradually: {
+                                        enabled: true,
+                                        delay: 150
+                                    },
+                                    dynamicAnimation: {
+                                        enabled: true,
+                                        speed: 350
+                                    }
+                                },
+                                toolbar: {
+                                    show: false // Hide toolbar by default
+                                }
+                            },
+                            series: chartConfig.series, // Data series
+                            xaxis: {
+                                categories: chartConfig.labels, // Use labels from chartConfig for X-axis categories
+                                title: {
+                                    text: chartConfig.xAxisTitle // X-axis title
+                                }
+                            },
+                            yaxis: {
+                                title: {
+                                    text: chartConfig.yAxisTitle // Y-axis title
+                                },
+                                labels: {
+                                    formatter: function (value) {
+                                        let formattedValue = value;
+                                        // Check valueUnit first for explicit unit
+                                        if (chartConfig.valueUnit) {
+                                            if (chartConfig.valueUnit === 'kg') {
+                                                formattedValue = new Intl.NumberFormat('pt-BR', { style: 'unit', unit: 'kilogram', unitDisplay: 'short' }).format(value);
+                                            } else if (chartConfig.valueUnit === '%') {
+                                                formattedValue = new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value / 100);
+                                            } else if (chartConfig.valueUnit === 'cx') {
+                                                formattedValue = `${value} cx`; // Manually append 'cx' for caixas
+                                            } else if (chartConfig.valueUnit === 'R$') {
+                                                formattedValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+                                            }
+                                            else {
+                                                formattedValue = `${value} ${chartConfig.valueUnit}`; // For other custom units
+                                            }
+                                        } else if (chartConfig.yAxisTitle && (chartConfig.yAxisTitle.includes('kg/1000 m²') || chartConfig.yAxisTitle.includes('kg/ha') || (chartConfig.title && chartConfig.title.includes('Produção')))) {
+                                            formattedValue = new Intl.NumberFormat('pt-BR', { style: 'unit', unit: 'kilogram', unitDisplay: 'short' }).format(value);
+                                        } else if (chartConfig.yAxisTitle && chartConfig.yAxisTitle.includes('%')) {
+                                            formattedValue = new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value / 100);
+                                        }
+                                        return formattedValue;
+                                    }
+                                }
+                            },
+                            plotOptions: {
+                                bar: {
+                                    horizontal: false,
+                                    columnWidth: '55%',
+                                    endingShape: 'rounded',
+                                    colors: { // Moved colors property here for individual bar coloring
+                                        ranges: [{
+                                            from: 0,
+                                            to: 1000000, // A large number to cover all bar values
+                                            color: undefined // This will be overridden by the chartConfig.colors array
+                                        }]
+                                    }
+                                },
+                            },
+                            colors: chartConfig.colors || ['#36454F', '#4CAF50'], // This will be used by the fill property below
+                            fill: {
+                                opacity: 0.9 // Ensure opacity is not zero
+                            },
+                            legend: {
+                                show: chartConfig.showLegend !== false, // Show legend by default
+                                position: 'top',
+                            },
+                            title: {
+                                text: chartConfig.title, // Chart title
+                                align: 'center'
+                            }
+                        };
+
+                        // Dynamically set colors for individual bars if provided in chartConfig.colors
+                        if (chartConfig.colors && chartConfig.colors.length > 0) {
+                            options.plotOptions.bar.colors.ranges = chartConfig.colors.map((color, index) => ({
+                                from: chartConfig.series[0].data[index], // Use the data value as 'from' for range
+                                to: chartConfig.series[0].data[index],   // Use the data value as 'to' for range
+                                color: color
+                            }));
+                            // If there are more colors than data points, or if the range logic is complex,
+                            // ApexCharts might need a simpler direct color array for the series.
+                            // Let's try setting colors directly at the top level for the series.
+                            options.colors = chartConfig.colors; // Keep this here for series-level coloring
+                        }
+
+
+                        const chart = new ApexCharts(chartDiv, options);
+                        chart.render(); // Render the chart
+                        initializedCharts.set(divId, true); // Mark this chart as initialized
+                        observer.unobserve(entry.target); // Stop observing this div once the chart is created
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
+
+            observer.observe(chartDiv); // Start observing the chart div
+        });
+    };
+    document.head.appendChild(apexChartsScript); // Append ApexCharts script to head
+});

@@ -1,0 +1,86 @@
+/* Conteúdo do arquivo style.css */
+body {
+    font-family: 'Inter', sans-serif;
+}
+.hero-section {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+.section-title {
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.section-subtitle {
+    font-size: 1.25rem; /* 20px */
+    color: #4B5563; /* gray-600 */
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+.culture-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.culture-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Carousel specific styles */
+.carousel-item {
+    flex: 0 0 auto; /* Prevent items from growing/shrinking */
+    width: calc(100% - 2rem); /* Default to 1 item per view on small screens with margin */
+    margin-right: 1rem; /* Space between items */
+    scroll-snap-align: start;
+}
+
+/* Adjust width for different screen sizes */
+@media (min-width: 640px) { /* sm breakpoint */
+    .carousel-item {
+        width: calc(100% / 2 - 1.5rem); /* 2 items per view with margin */
+    }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+    .carousel-item {
+        width: calc(100% / 3 - 1.33rem); /* 3 items per view with margin */
+    }
+}
+
+@media (min-width: 1280px) { /* xl breakpoint */
+    .carousel-item {
+        width: calc(100% / 4 - 1.25rem); /* 4 items per view with margin */
+    }
+}
+
+/* Hide scrollbar for aesthetic purposes */
+#carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+#carousel-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
