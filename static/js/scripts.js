@@ -1,16 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Existing header and footer loading logic
-    fetch('header.html')
+    // Ajustado o caminho para ser absoluto para garantir o carregamento em todas as páginas
+    fetch('/header.html')
         .then(response => response.text())
         .then(html => {
             document.getElementById('header-placeholder').innerHTML = html;
-        });
+            // Mover a lógica da logo para cá, após o header ser injetado
+            const headerLogo = document.getElementById('header-logo');
+            if (headerLogo) {
+                const absolutePath = window.location.origin + '/static/imagens/logo-horizontal.svg';
+                headerLogo.src = absolutePath;
+                console.log('Caminho da logo definido para:', absolutePath); // Adicionado console.log para depuração
+            }
+        })
+        .catch(error => console.error('Erro ao carregar o cabeçalho:', error)); // Adicionado tratamento de erro
 
-    fetch('footer.html')
+    fetch('/footer.html')
         .then(response => response.text())
         .then(html => {
             document.getElementById('footer-placeholder').innerHTML = html;
-        });
+        })
+        .catch(error => console.error('Erro ao carregar o rodapé:', error)); // Adicionado tratamento de erro
 
     // Generic Carousel Functionality
     // This function can be reused for any carousel with the specified structure
@@ -141,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                                 formattedValue = new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value / 100);
                                             } else if (chartConfig.valueUnit === 'cx') {
                                                 formattedValue = `${value} cx`; // Manually append 'cx' for caixas
-                                            } else if (chartConfig.valueUnit === 'R$') {
+                                            } else if (chartConfig.valueUnit === 'R$') { // Preserve R$ formatter
                                                 formattedValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
                                             }
                                             else {
@@ -169,6 +179,29 @@ document.addEventListener('DOMContentLoaded', () => {
                                         }]
                                     }
                                 },
+                            },
+                            dataLabels: {
+                                enabled: true,
+                                formatter: function (val) {
+                                    let formattedVal = val;
+                                    // Check valueUnit first for explicit unit
+                                    if (chartConfig.valueUnit) {
+                                        if (chartConfig.valueUnit === 'kg') {
+                                            formattedVal = new Intl.NumberFormat('pt-BR', { style: 'unit', unit: 'kilogram', unitDisplay: 'short' }).format(val);
+                                        } else if (chartConfig.valueUnit === '%') {
+                                            formattedVal = new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(val / 100);
+                                        } else if (chartConfig.valueUnit === 'cx') {
+                                            formattedVal = `${val} cx`; // Manually append 'cx' for caixas
+                                        } else {
+                                            formattedVal = `${val} ${chartConfig.valueUnit}`; // For other custom units
+                                        }
+                                    } else if (chartConfig.yAxisTitle && chartConfig.yAxisTitle.includes('%')) {
+                                        formattedVal = new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(val / 100);
+                                    } else if (chartConfig.yAxisTitle && (chartConfig.yAxisTitle.includes('kg/1000 m²') || chartConfig.yAxisTitle.includes('kg/ha') || (chartConfig.title && chartConfig.title.includes('Produção')))) { // Added chartConfig.title.includes('Produção')
+                                        formattedVal = new Intl.NumberFormat('pt-BR', { style: 'unit', unit: 'kilogram', unitDisplay: 'short' }).format(val);
+                                    }
+                                    return formattedVal;
+                                }
                             },
                             colors: chartConfig.colors || ['#36454F', '#4CAF50'], // This will be used by the fill property below
                             fill: {
@@ -210,4 +243,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     document.head.appendChild(apexChartsScript); // Append ApexCharts script to head
+
+    // Logic for Image Modal
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    // Open modal when an image with 'open-modal-trigger' class is clicked
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('open-modal-trigger')) {
+            const fullSrc = event.target.dataset.fullSrc || event.target.src; // Use data-full-src or fallback to src
+            modalImage.src = fullSrc;
+            imageModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Prevent scrolling behind modal
+        }
+    });
+
+    // Close modal when close button is clicked
+    closeModalBtn.addEventListener('click', () => {
+        imageModal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    });
+
+    // Close modal when clicking outside the image (on the overlay)
+    imageModal.addEventListener('click', (event) => {
+        if (event.target === imageModal) {
+            imageModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+    });
+
+    // Close modal when Escape key is pressed
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !imageModal.classList.contains('hidden')) {
+            imageModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+    });
 });

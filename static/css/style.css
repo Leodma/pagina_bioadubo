@@ -2,6 +2,15 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+
+.bg-brown{
+    background-color: #611a1a;
+
+}
+#header-placeholder{
+    z-index: 1;
+
+}
 .hero-section {
     position: relative;
     height: 90vh;

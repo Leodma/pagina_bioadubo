@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioadubo - Case de Sucesso: Batata Baroa</title>
+    <!-- Link para o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links para as fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="../static/css/style.css"> 
+    <!-- Link para o ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Placeholder para o Cabeçalho (será carregado via JavaScript) -->
+    <div id="header-placeholder"></div>
+
+    <main class="py-12 pt-20"> <!-- Adicionado pt-20 para mais padding-top -->
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-2">Case de Sucesso: Batata Baroa</h1>
+            <p class="text-xl text-gray-700 mb-12">Relatório de atividade com o uso de Bioadubo</p>
+
+            <!-- Seção de Dados do Produtor e Comparativo de Aplicações -->
+            <section class="bg-white rounded-lg p-8 mb-12 flex flex-col md:flex-row gap-8">
+                <!-- Coluna 1: Dados do Produtor -->
+                <div class="md:w-1/2 text-left flex flex-col">
+                    <div>
+                        <h2 class="text-2xl font-bold text-green-700 mb-4">Dados do Produtor</h2>
+                        <p class="text-gray-700 mb-2"><strong class="font-semibold">Nome do Produtor:</strong> Moacir José Banak</p>
+                        <p class="text-gray-700 mb-2"><strong class="font-semibold">Responsável Técnico:</strong> Engº Agrônomo Irani Portílio CREA 12.150-D RS</p>
+                        <p class="text-gray-700 mb-2"><strong class="font-semibold">Cultivo:</strong> Batata Baroa</p>
+                        <p class="text-gray-700 mb-2"><strong class="font-semibold">Nome da Propriedade:</strong> Comunidade Campo Alto</p>
+                        <p class="text-gray-700 mb-2"><strong class="font-semibold">Endereço Completo:</strong> strada João Claro Machado, s/n – Campo Alto</p>
+                        <p class="text-gray-700 mb-2"><strong class="font-semibold">Cidade/Estado:</strong> Tijucas do Sul/ PR</p>
+                        <p class="text-gray-700 mb-2"><strong class="font-semibold">Localização Geográfica:</strong> 25°50'30.8”S 49°05'26.0”W</p>
+                    </div>
+                    <!-- Mapa Ilustrativo do Brasil com Estado Destacado (Placeholder) -->
+                    <div class="flex-grow flex items-end justify-start mt-4 p-4">
+                        <img src="/static/imagens/mapas_svg/mapa-parana.svg" alt="Mapa do Brasil com Paraná destacado" class="w-full h-auto max-w-xs object-contain">
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Comparativo de Aplicações -->
+                <div class="md:w-1/2 text-left">
+                    <h2 class="text-2xl font-bold text-green-700 mb-4">Comparativo de Aplicações</h2>
+                    <div class="overflow-x-auto mb-8">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Insumos</h3>
+                        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-green-500 text-white">
+                                    <th class="py-2 px-4 border-b">Insumos</th>
+                                    <th class="py-2 px-4 border-b">Convencional</th>
+                                    <th class="py-2 px-4 border-b">Bioadubo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Calcário</td>
+                                    <td class="py-2 px-4 border-b">1.250 kg/2.500 m²</td>
+                                    <td class="py-2 px-4 border-b">1.250 kg/2.500 m²</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Fertilizante Bioadubo</td>
+                                    <td class="py-2 px-4 border-b">-</td>
+                                    <td class="py-2 px-4 border-b">2 Litros</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-gray-600 text-sm mt-2">Obs.: Sementes, defensivos agrícolas químicos ou biológicos, mão de obra, maquinário combustível, irrigação se aplicável e outros são despesas iguais ou próximos nos dois casos.</p>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Custos de Produção</h3>
+                        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-green-500 text-white">
+                                    <th class="py-2 px-4 border-b">Custos de Produção</th>
+                                    <th class="py-2 px-4 border-b">Convencional</th>
+                                    <th class="py-2 px-4 border-b">Bioadubo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Custos</td>
+                                    <td class="py-2 px-4 border-b">R$ 463,00</td>
+                                    <td class="py-2 px-4 border-b">R$ 553,00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Produção Kg</td>
+                                    <td class="py-2 px-4 border-b">465 kg</td>
+                                    <td class="py-2 px-4 border-b">525 kg</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Produção Caixas</td>
+                                    <td class="py-2 px-4 border-b">18.6 caixas de 25 kg</td>
+                                    <td class="py-2 px-4 border-b">21 caixas de 25 kg</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Ganho de produtividade</td>
+                                    <td class="py-2 px-4 border-b">100%</td>
+                                    <td class="py-2 px-4 border-b">113%</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Valor total da venda</td>
+                                    <td class="py-2 px-4 border-b">R$ 3.720,00</td>
+                                    <td class="py-2 px-4 border-b">R$ 4.200,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-gray-600 text-sm mt-2 font-semibold">Comentário:</p>
+                        <p class="text-gray-600 text-sm mt-1">O resultado obtido, apesar do agricultor não ter seguido integralmente as recomendações técnicas referentes à preparação do solo e à aplicação foliar. Ainda assim, os resultados alcançados foram considerados satisfatórios.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Fotos Antes e Depois -->
+            <section class="mb-12 bg-white rounded-lg p-8">
+                <h2 class="text-3xl font-bold text-green-800 mb-6">Fotos: Antes e Depois da Aplicação</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Carrossel de Fotos "Antes da Aplicação" -->
+                    <div class="rounded-lg p-4 relative">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Antes da Aplicação (Cultivo Convencional)</h3>
+                        <div id="before-carousel-container" class="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory pb-4">
+                            <!-- Imagem 1 Antes (Placeholder) -->
+                            <img src="/static/imagens/Batata-baroa/batata-conv01.jpg" onerror="this.src='https://placehold.co/600x400/D1FAE5/065F46?text=Batata+Baroa+Convencional+1'" alt="Batata Baroa Convencional 1" class="carousel-image-item flex-shrink-0 w-full snap-center rounded-lg object-cover max-h-[300px]">
+                            <!-- Imagem 2 Antes (Placeholder) -->
+                            <img src="/static/imagens/Batata-baroa/batata-conv02.jpg" onerror="this.src='https://placehold.co/600x400/D1FAE5/065F46?text=Batata+Baroa+Convencional+2'" alt="Batata Baroa Convencional 2" class="carousel-image-item flex-shrink-0 w-full snap-center rounded-lg object-cover ml-4 max-h-[300px]">
+                            <!-- Adicione mais imagens "Antes" aqui se houver -->
+                        </div>
+                        <!-- Botões de Navegação Antes -->
+                        <button id="prev-before-btn" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 text-green-700">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
+                        <button id="next-before-btn" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 text-green-700">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </button>
+                        <p class="text-gray-600 mt-2">Condição da lavoura de Batata Baroa antes da aplicação do Bioadubo.</p>
+                    </div>
+
+                    <!-- Carrossel de Fotos "Depois da Aplicação" -->
+                    <div class="rounded-lg p-4 relative">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Depois da Aplicação (Cultivo com Bioadubo)</h3>
+                        <div id="after-carousel-container" class="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory pb-4">
+                            <!-- Imagem 1 Depois (Placeholder) -->
+                            <img src="/static/imagens/Batata-baroa/batata-bioadubo01.jpg" onerror="this.src='https://placehold.co/600x400/795548/FFFFFF?text=Batata+Baroa+Bioadubo+1'" alt="Batata Baroa Depois 1" class="carousel-image-item flex-shrink-0 w-full snap-center rounded-lg object-cover max-h-[300px]">
+                            <!-- Imagem 2 Depois (Placeholder) -->
+                            <img src="/static/imagens/Batata-baroa/batata-bioadubo02.jpg" onerror="this.src='https://placehold.co/600x400/795548/FFFFFF?text=Batata+Baroa+Bioadubo+2'" alt="Batata Baroa Depois 2" class="carousel-image-item flex-shrink-0 w-full snap-center rounded-lg object-cover ml-4 max-h-[300px]">
+                            <img src="/static/imagens/Batata-baroa/batata-bioadubo03.jpg" onerror="this.src='https://placehold.co/600x400/795548/FFFFFF?text=Batata+Baroa+Bioadubo+3'" alt="Batata Baroa Depois 2" class="carousel-image-item flex-shrink-0 w-full snap-center rounded-lg object-cover ml-4 max-h-[300px]">
+                            <!-- Adicione mais imagens "Depois" aqui se houver -->
+                        </div>
+                        <!-- Botões de Navegação Depois -->
+                        <button id="prev-after-btn" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 text-green-700">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
+                        <button id="next-after-btn" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 text-green-700">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </button>
+                        <p class="text-gray-600 mt-2">Condição da lavoura de Batata Baroa após a aplicação do Bioadubo, com maior vigor e desenvolvimento.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Gráficos de Ganho Comparativo e Financeiro -->
+            <section class="mb-12 bg-white rounded-lg p-8">
+                <h2 class="text-3xl font-bold text-green-800 mb-6">Gráficos Comparativos</h2>
+                <div class="flex flex-col md:flex-row gap-8 justify-center">
+                    <div class="md:w-1/2 max-w-lg mx-auto">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Comparação de Produção</h3>
+                        <!-- Div para o ApexCharts com dados de Produção de Batata Baroa -->
+                        <div id="batataBaroaProductionChart"
+                            data-chart-config='{
+                                "type": "bar",
+                                "height": 350,
+                                "series": [{"name": "Produção (kg)", "data": [465, 525]}],
+                                "labels": ["Convencional", "Bioadubo"],
+                                "yAxisTitle": "Produção (kg)",
+                                "valueUnit": " kg",
+                                "colors": ["#36454F", "#4CAF50"],
+                                "title": "Comparação de Produção Batata Baroa"
+                            }'>
+                        </div>
+                        <p class="text-gray-600 mt-4">Representação visual do aumento de produtividade na cultura da Batata Baroa.</p>
+                    </div>
+                    <div class="md:w-1/2 max-w-lg mx-auto">
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Ganho Financeiro</h3>
+                        <!-- Div para o ApexCharts com dados de Ganho Financeiro de Batata Baroa -->
+                        <div id="batataBaroaFinancialGainChart"
+                            data-chart-config='{
+                                "type": "bar",
+                                "height": 350,
+                                "series": [{"name": "Ganho Financeiro", "data": [100, 112]}],
+                                "labels": ["Convencional", "Bioadubo"],
+                                "yAxisTitle": "Ganho Financeiro",
+                                "valueUnit": "%",
+                                "colors": ["#36454F", "#4CAF50"],
+                                "title": "Ganho Financeiro Batata Baroa"
+                            }'>
+                        </div>
+                        <p class="text-gray-600 mt-4">Representação visual do ganho financeiro com o uso do Bioadubo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Localização e Área -->
+            <section class="mb-12 bg-white rounded-lg p-8">
+                <h2 class="text-3xl font-bold text-green-800 mb-6">Localização da Área de Estudo</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-top">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Mapa da Propriedade</h3>
+                        <!-- Google Maps Embed -->
+                        <div class="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden">
+                            <iframe
+                                src="https://maps.google.com/maps?q=-25.840000,-49.140556&ll=-25.840000,-49.140556&z=15&t=m&output=embed"
+                                width="100%"
+                                height="350"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <p class="text-gray-600 mt-4">Localização exata da propriedade no mapa.</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Detalhes da Área</h3>
+                        <!-- Foto da Área com Dados -->
+                        <img src="/static/imagens/Batata-baroa/area-batata.png" alt="Foto da área de plantio de Batata Baroa" class="rounded-lg w-auto h-auto object-cover max-h-[350px] mb-4 mx-auto">
+                        <p class="text-gray-700"><strong class="font-semibold">Área Total da Propriedade:</strong> 2.500 m²</p>
+                        <p class="text-gray-700"><strong class="font-semibold">Área Validada com Bioadubo:</strong> 1.250 m²</p>
+                        <p class="text-gray-600 mt-2">Visão da área cultivada onde o Bioadubo foi aplicado.</p>
+                    </div>
+                </div>
+            </section>
+
+            <a href="../cases.html" class="inline-block mt-6 bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition-colors">
+                &larr; Voltar para Todos os Cases
+            </a>
+        </div>
+    </main>
+
+    <!-- Placeholder para o Rodapé (será carregado via JavaScript) -->
+    <div id="footer-placeholder"></div>
+    <script src="../static/js/scripts.js"></script>
+</body>
+</html>

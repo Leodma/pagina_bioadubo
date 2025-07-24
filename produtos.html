@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioadubo - Nossos Produtos</title>
+    <!-- Link para o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links para as fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="static/css/style.css"> 
+</head>
+<body class="bg-gray-50">
+
+    <!-- Placeholder para o Cabeçalho (será carregado via JavaScript) -->
+    <div id="header-placeholder" ></div>
+    
+    <main class="pt-20" > 
+        <!-- SEÇÃO DE TOPO COM IMAGEM PNG E COR DE FUNDO -->
+       <section class="relative bg-green-700 h-64 md:h-80 lg:h-96 flex flex-col items-center justify-center text-white overflow-hidden">
+            <!-- Container para a imagem e o overlay de degradê -->
+            <div class="absolute inset-0 z-0">
+                <!-- Imagem PNG centralizada -->
+                <img src="/static/imagens/topo-produtos.webp" alt="" class="w-full h-full object-cover object-center">
+                <!-- Overlay com degradê para escurecer apenas os cantos -->
+                <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.5) 100%);"></div>
+            </div>
+            <div class="z-20 px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Nossos Produtos Bioadubo</h1>
+                <p class="text-xl md:text-2xl">Descubra a linha completa de biofertilizantes Bioadubo.</p>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-6 py-12 text-center">
+            <p class="text-xl text-gray-700 mb-12">Desenvolvida para atender às necessidades de cada tipo e escala de cultivo.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Produto: Biofertilizante Sachê 50ml -->
+                <div class="bg-white rounded-lg p-6 flex flex-col items-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <img src="/static/imagens/produtos/sache.webp" alt="Biofertilizante Sachê 50ml" class="w-48 h-48 object-contain mb-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-3">Biofertilizante Sachê 50ml</h2>
+                    <p class="text-gray-700 text-center mb-4 flex-grow">
+                        A dose perfeita para pequenos jardins, hortas domésticas e vasos. Prático e fácil de usar para o cultivo em pequena escala.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 text-left w-full mb-4">
+                        <li>Formato prático e econômico.</li>
+                        <li>Nutrição essencial para plantas.</li>
+                        <li>Ideal para uso doméstico.</li>
+                    </ul>
+                    <a href="produtos/sache-50ml.html" class="inline-block mt-auto bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Saiba Mais
+                    </a>
+                </div>
+
+                <!-- Produto: Biofertilizante 1 Litro -->
+                <div class="bg-white rounded-lg p-6 flex flex-col items-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <img src="/static/imagens/produtos/bioadubo-1-litro.webp" alt="Biofertilizante 1 Litro" class="w-48 h-48 object-contain mb-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-3">Biofertilizante 1 Litro</h2>
+                    <p class="text-gray-700 text-center mb-4 flex-grow">
+                        A solução ideal para médios produtores e entusiastas da jardinagem que buscam resultados profissionais.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 text-left w-full mb-4">
+                        <li>Rendimento otimizado para áreas maiores.</li>
+                        <li>Fácil aplicação e manuseio.</li>
+                        <li>Perfeito para cultivos semiprofissionais.</li>
+                    </ul>
+                    <a href="produtos/1-litro.html" class="inline-block mt-auto bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Saiba Mais
+                    </a>
+                </div>
+
+                <!-- Produto: Biofertilizante 5 Litros -->
+                <div class="bg-white rounded-lg p-6 flex flex-col items-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <img src="/static/imagens/produtos/bioadubo-5l.webp" alt="Biofertilizante 5 Litros" class="w-48 h-48 object-contain mb-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-3">Biofertilizante 5 Litros</h2>
+                    <p class="text-gray-700 text-center mb-4 flex-grow">
+                        Desenvolvido para produtores que necessitam de maior volume e eficiência. Maximize sua colheita com a qualidade Bioadubo.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 text-left w-full mb-4">
+                        <li>Formato econômico para áreas médias.</li>
+                        <li>Alta concentração e eficácia.</li>
+                        <li>Solução para agricultura em escala.</li>
+                    </ul>
+                    <a href="produtos/5-litros.html" class="inline-block mt-auto bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Saiba Mais
+                    </a>
+                </div>
+
+                <!-- Produto: Biofertilizante 20 Litros -->
+                <div class="bg-white rounded-lg p-6 flex flex-col items-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <img src="/static/imagens/produtos/galao20l.webp" alt="Biofertilizante 20 Litros" class="w-48 h-48 object-contain mb-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-3">Biofertilizante 20 Litros</h2>
+                    <p class="text-gray-700 text-center mb-4 flex-grow">
+                        Para grandes lavouras, este galão oferece a quantidade ideal para otimizar a aplicação e reduzir a frequência de reabastecimento.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 text-left w-full mb-4">
+                        <li>Volume ideal para grandes áreas.</li>
+                        <li>Eficiência na aplicação.</li>
+                        <li>Reduz a necessidade de múltiplos galões.</li>
+                    </ul>
+                    <a href="produtos/20-litros.html" class="inline-block mt-auto bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Saiba Mais
+                    </a>
+                </div>
+
+                <!-- Produto: Bombona de 1000 Litros -->
+                <div class="bg-white rounded-lg p-6 flex flex-col items-center transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <img src="/static/imagens/produtos/galao1000l.webp" alt="Bombona de 1000 Litros" class="w-48 h-48 object-contain mb-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-3">Bombona de 1000 Litros</h2>
+                    <p class="text-gray-700 text-center mb-4 flex-grow">
+                        A solução definitiva para a agricultura em larga escala, garantindo o melhor custo-benefício e suprimento contínuo para sua produção.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 text-left w-full mb-4">
+                        <li>Máxima economia e volume.</li>
+                        <li>Ideal para grandes propriedades.</li>
+                        <li>Logística otimizada para o produtor.</li>
+                    </ul>
+                    <a href="produtos/1000-litros.html" class="inline-block mt-auto bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Saiba Mais
+                    </a>
+                </div>
+            </div>
+
+            <!-- NOVA SEÇÃO: Modo de Uso em Diversas Culturas -->
+            <section id="modo-uso-culturas" class="py-12 bg-green-100 rounded-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6">Modo de Uso em Diversas Culturas</h2>
+                <p class="text-gray-700 text-lg mb-8 max-w-3xl mx-auto">
+                    O Bioadubo é versátil e pode ser aplicado em uma ampla variedade de culturas, adaptando-se às necessidades específicas de cada plantio. Nossas instruções detalhadas garantem a aplicação correta para maximizar seus resultados.
+                </p>
+                <a href="/instrucoes-uso.html" class="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition-colors">
+                    Ver Instruções de Uso
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Placeholder para o Rodapé (será carregado via JavaScript) -->
+    <div id="footer-placeholder"></div>
+    <script src="static/js/scripts.js"></script>
+</body>
+</html>

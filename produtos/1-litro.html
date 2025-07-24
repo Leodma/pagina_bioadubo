@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioadubo - Biofertilizante 1 Litro</title>
+    <!-- Link para o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links para as fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="../static/css/style.css"> 
+</head>
+<body class="bg-white">
+
+    <div id="header-placeholder"></div>
+
+    <main class="py-12 pt-18"> <!-- Ajustado padding-top para compensar o cabeçalho fixo -->
+        <!-- SEÇÃO DE TOPO COM IMAGEM PNG E COR DE FUNDO -->
+        <section class="relative bg-green-700 h-64 md:h-80 lg:h-80 flex flex-col items-center justify-center text-white overflow-hidden">
+            <!-- Container para a imagem e o overlay de degradê -->
+            <div class="absolute inset-0 z-0">
+                <!-- Imagem PNG centralizada - Substitua pelo PNG do produto 1 Litro -->
+                <img src="/static/imagens/topo-1-litro.webp" alt="" class="w-full h-full object-cover object-center">
+                <!-- Overlay com degradê para escurecer apenas os cantos -->
+                <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.5) 100%);"></div>
+            </div>
+           
+        </section>
+
+        <div class="container mx-auto px-6 py-12 text-center">
+            <!-- Seção de Visão Geral do Produto - Layout de duas colunas -->
+            <section class="bg-white rounded-lg p-8 mb-12 text-left flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <!-- Imagem principal do produto 1 Litro - Substitua pela imagem real -->
+                    <img src="/static/imagens/produtos/bioadubo-1-litro.webp" alt="" class="rounded-lg shadow-md w-full h-auto object-contain max-h-[400px] cursor-pointer open-modal-trigger" data-full-src="/static/imagens/produtos/bioadubo-1-litro.webp">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-green-700 mb-4 text-center md:text-left">Visão Geral</h2>
+                    <p class="text-gray-700 mb-4">
+                        O Biofertilizante Bioadubo de 1 Litro é a escolha perfeita para quem busca maximizar a saúde e produtividade de suas plantas em escala intermediária. Sua formulação rica em substâncias húmicas e microrganismos benéficos garante um solo fértil e plantas mais resistentes.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Características Principais:</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                        <li>Rendimento otimizado para áreas maiores ou uso contínuo em jardins e pequenas hortas.</li>
+                        <li>Fácil aplicação e manuseio.</li>
+                        <li>Promove o crescimento vigoroso e a absorção eficiente de nutrientes.</li>
+                        <li>Aumenta a resistência a estresses ambientais.</li>
+                        <li>Melhora a qualidade e o rendimento da colheita.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seção de Modo de Uso e Dosagem -->
+            <section class="bg-green-800 rounded-lg p-8 mb-12 text-left">
+                <h2 class="text-3xl font-bold text-white mb-6 text-center">Modo de Uso e Dosagem</h2>
+                <p class="text-gray-200 mb-4">
+                    Para obter os melhores resultados, siga as instruções de diluição e aplicação abaixo. A dosagem pode variar conforme o tipo de cultura e estágio de desenvolvimento.
+                </p>
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                        <thead>
+                            <tr class="bg-green-500 text-white">
+                                <th class="py-2 px-4 border-b">Aplicação</th>
+                                <th class="py-2 px-4 border-b">Diluição Recomendada</th>
+                                <th class="py-2 px-4 border-b">Frequência</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2 px-4 border-b">Foliar</td>
+                                <td class="py-2 px-4 border-b">15 a 20 ml por litro de água</td>
+                                <td class="py-2 px-4 border-b">A cada 15 a 30 dias</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-2 px-4 border-b">Solo (rega/fertirrigação)</td>
+                                <td class="py-2 px-4 border-b">20 a 30 ml por litro de água</td>
+                                <td class="py-2 px-4 border-b">A cada 20 a 45 dias</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-gray-100 italic">Para culturas específicas e recomendações detalhadas, consulte a página de <a href="/instrucoes-uso.html" class="text-green-200 hover:underline">Instruções de Uso</a>.</p>
+            </section>
+
+  
+
+            <a href="/produtos.html" class="inline-block mt-6 bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition-colors">
+                &larr; Voltar para Todos os Produtos
+            </a>
+        </div>
+    </main>
+
+       <!-- Estrutura do Modal para Imagem em Tamanho Real -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="relative bg-white rounded-lg p-4 max-w-3xl max-h-full overflow-auto">
+            <button id="close-modal-btn" class="absolute top-2 right-2 text-gray-800 hover:text-gray-600 text-3xl font-bold leading-none focus:outline-none">
+                &times;
+            </button>
+            <img id="modal-image" src="" alt="" class="max-w-full max-h-[80vh] object-contain mx-auto">
+        </div>
+    </div>
+
+
+    <!-- Placeholder para o Rodapé (será carregado via JavaScript) -->
+    <div id="footer-placeholder"></div>
+    <script src="../static/js/scripts.js"></script>
+</body>
+</html>
