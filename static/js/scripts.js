@@ -1,26 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Existing header and footer loading logic
-    // Ajustado o caminho para ser absoluto para garantir o carregamento em todas as páginas
-    fetch('/header.html')
+    // Determine the base path for GitHub Pages or local development
+    let basePath = '/';
+    // Check if running on GitHub Pages (e.g., username.github.io/repo-name/)
+    // This logic assumes the repository name is the first segment after the domain.
+    if (window.location.hostname.endsWith('github.io') && window.location.pathname !== '/') {
+        const pathSegments = window.location.pathname.split('/');
+        if (pathSegments.length > 1 && pathSegments[1] !== '') {
+            basePath = '/' + pathSegments[1] + '/';
+        }
+    }
+    // If running locally or on a root domain, basePath remains '/'
+
+    // Existing header and footer loading logic, now using basePath
+    fetch(basePath + 'header.html')
         .then(response => response.text())
         .then(html => {
             document.getElementById('header-placeholder').innerHTML = html;
-            // Mover a lógica da logo para cá, após o header ser injetado
             const headerLogo = document.getElementById('header-logo');
             if (headerLogo) {
-                const absolutePath = window.location.origin + '/static/imagens/logo-horizontal.svg';
-                headerLogo.src = absolutePath;
-                console.log('Caminho da logo definido para:', absolutePath); // Adicionado console.log para depuração
+                // Ensure the logo path also uses the basePath
+                headerLogo.src = basePath + 'static/imagens/logo-horizontal.svg';
+                console.log('Caminho da logo definido para:', headerLogo.src);
             }
         })
-        .catch(error => console.error('Erro ao carregar o cabeçalho:', error)); // Adicionado tratamento de erro
+        .catch(error => console.error('Erro ao carregar o cabeçalho:', error));
 
-    fetch('/footer.html')
+    fetch(basePath + 'footer.html')
         .then(response => response.text())
         .then(html => {
             document.getElementById('footer-placeholder').innerHTML = html;
         })
-        .catch(error => console.error('Erro ao carregar o rodapé:', error)); // Adicionado tratamento de erro
+        .catch(error => console.error('Erro ao carregar o rodapé:', error));
 
     // Generic Carousel Functionality
     // This function can be reused for any carousel with the specified structure
