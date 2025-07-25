@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioadubo - Contato</title>
+    <!-- Script para definir a base URL dinamicamente para GitHub Pages -->
+    <script>
+        // Determine o caminho base para GitHub Pages ou desenvolvimento local
+        let basePath = '/';
+        const repoName = 'pagina_bioadubo'; // Defina o nome do seu repositório aqui
+
+        // Se estiver no GitHub Pages (dominio .github.io), o basePath será /repoName/
+        if (window.location.hostname.endsWith('github.io')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Se estiver em localhost e o caminho incluir o nome do repositório (ex: via servidor local)
+        else if (window.location.hostname === 'localhost' && window.location.pathname.startsWith('/' + repoName + '/')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Caso contrário (ex: desenvolvimento local na raiz ou domínio personalizado), basePath permanece '/'
+
+        // Cria e adiciona a tag <base> ao head do documento
+        const baseTag = document.createElement('base');
+        baseTag.href = basePath;
+        document.head.prepend(baseTag); // Garante que a tag <base> seja a primeira no <head>
+    </script>
+    <!-- Link para o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links para as fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="static/css/style.css"> 
+</head>
+<body class="bg-gray-50">
+
+    <!-- Placeholder para o Cabeçalho (será carregado via JavaScript) -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-28"> <!-- Aumentado padding-top para compensar o cabeçalho fixo -->
+        <!-- SEÇÃO DE TOPO COM COR DE FUNDO (SEM IMAGEM) -->
+        <section class="relative bg-green-700 h-64 md:h-80 lg:h-96 flex flex-col items-center justify-center text-white overflow-hidden">
+            <!-- Overlay com degradê para escurecer apenas os cantos (opcional, pode remover se preferir cor sólida) -->
+            <div class="absolute inset-0 z-10" style="background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.2) 100%);"></div>
+            <div class="z-20 px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Fale Conosco</h1>
+                <p class="text-xl md:text-2xl">Estamos prontos para atender suas necessidades e dúvidas.</p>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-6 py-12 text-center">
+            <p class="text-xl text-gray-700 mb-12">Entre em contato com a Bioadubo pelos nossos canais de atendimento ou visite uma de nossas unidades.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Informações de Contato -->
+                <section class="bg-white rounded-lg shadow-md p-8 text-left flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-green-700 mb-6">Nossos Contatos</h2>
+                        <ul class="text-gray-700 space-y-4 text-lg">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 text-green-600 mr-3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 12v.01M12 7v.01M12 17v.01" />
+                                </svg>
+                                <strong>Website:</strong> <a href="http://www.bioadubo.com.br" target="_blank" class="text-green-600 hover:underline ml-2">www.bioadubo.com.br</a>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 text-green-600 mr-3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                </svg>
+                                <strong>E-mail:</strong> <a href="mailto:bioadubo@bioadubo.com.br" class="text-green-600 hover:underline ml-2">bioadubo@bioadubo.com.br</a>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 text-green-600 mr-3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.106l-1.423-.398a2.25 2.25 0 0 1-1.277-2.062V10.75c0-.445-.246-.807-.548-.916l-4.43-1.476a1.125 1.125 0 0 0-1.312.319l-.779.779 1.256 1.256a4.5 4.5 0 0 1 1.106 2.158c.307 1.122-.356 2.22-1.537 2.567l-1.086.362a1.125 1.125 0 0 1-1.312-.319l-.779-.779-1.256-1.256a4.5 4.5 0 0 1-1.106-2.158c-.307-1.122.356-2.22 1.537-2.567L10.5 2.25" />
+                                </svg>
+                                <strong>Atendimento:</strong> (47) 3170-2929
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 text-green-600 mr-3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.106l-1.423-.398a2.25 2.25 0 0 1-1.277-2.062V10.75c0-.445-.246-.807-.548-.916l-4.43-1.476a1.125 1.125 0 0 0-1.312.319l-.779.779 1.256 1.256a4.5 4.5 0 0 1 1.106 2.158c.307 1.122-.356 2.22-1.537 2.567l-1.086.362a1.125 1.125 0 0 1-1.312-.319l-.779-.779-1.256-1.256a4.5 4.5 0 0 1-1.106-2.158c-.307-1.122.356-2.22 1.537-2.567L10.5 2.25" />
+                                </svg>
+                                <strong>Dep. Técnico:</strong> (41) 98511-3715
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Formulário de Contato (Placeholder) -->
+                <section class="bg-white rounded-lg shadow-md p-8 text-left">
+                    <h2 class="text-3xl font-bold text-green-700 mb-6">Envie sua Mensagem</h2>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nome Completo:</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Seu nome">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">E-mail:</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="seu.email@example.com">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Telefone (Opcional):</label>
+                            <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Mensagem:</label>
+                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Sua mensagem..."></textarea>
+                        </div>
+                        <button type="submit" class="bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition-colors focus:outline-none focus:shadow-outline">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Seção de Endereços com Mapas -->
+            <section class="bg-white rounded-lg shadow-md p-8 mb-12">
+                <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">Nossos Endereços</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Sede - São José dos Pinhais -->
+                    <div class="text-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Sede - São José dos Pinhais, PR</h3>
+                        <p class="text-gray-700 mb-4">
+                            Rua Pedro Gapski Filho, 595 - Jd. Itália<br>
+                            São José dos Pinhais, PR - 93020-340 - Brasil
+                        </p>
+                        <div class="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.417088998084!2d-49.19839992389104!3d-25.52554607751996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcf01202b281c5%3A0x6a0050c9b6b8b0e7!2sR.%20Pedro%20Gapski%20Filho%2C%20595%20-%20Jardim%20It%C3%A1lia%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Pinhais%20-%20PR%2C%2083020-340!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                                width="100%"
+                                height="300"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Unidade Fabril - Guaramirim -->
+                    <div class="text-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Unidade Fabril - Guaramirim, SC</h3>
+                        <p class="text-gray-700 mb-4">
+                            Rua Guilherme Tomelim, 3333 - Caixa D'Água<br>
+                            Guaramirim, SC - 89.270-000 - Brasil
+                        </p>
+                        <div class="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570.83549280145!2d-48.8310000238476!3d-26.47161107690184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df077a2d4b2d13%3A0x2a0050c9b6d8b0e7!2sR.%20Guilherme%20Tomelim%2C%203333%20-%20Caixa%20D'%C3%81gua%2C%20Guaramirim%20-%20SC%2C%2089270-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                                width="100%"
+                                height="300"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <a href="index.html" class="inline-block mt-6 bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition-colors">
+                &larr; Voltar para a Página Inicial
+            </a>
+        </div>
+    </main>
+
+    <!-- Placeholder para o Rodapé (será carregado via JavaScript) -->
+    <div id="footer-placeholder"></div>
+    <script src="static/js/scripts.js"></script>
+</body>
+</html>
