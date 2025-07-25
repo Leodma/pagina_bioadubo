@@ -126,6 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Setup for "After" images carousel
     setupCarousel('after-carousel-container', 'prev-after-btn', 'next-after-btn');
 
+    setupCarousel('biomovel-carousel-container', 'prev-biomovel-btn', 'next-biomovel-btn');
+
 
     // ApexCharts and Intersection Observer for animated graph
     // Load ApexCharts library dynamically
