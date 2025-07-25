@@ -1,13 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     // Determine the base path for GitHub Pages or local development
     let basePath = '/';
-    // Check if running on GitHub Pages (e.g., username.github.io/repo-name/)
-    // This logic assumes the repository name is the first segment after the domain.
-    if (window.location.hostname.endsWith('github.io') && window.location.pathname !== '/') {
-        const pathSegments = window.location.pathname.split('/');
-        if (pathSegments.length > 1 && pathSegments[1] !== '') {
-            basePath = '/' + pathSegments[1] + '/';
+    const repoName = 'pagina_bioadubo'; // Defina o nome do seu repositório aqui
+
+    // Check if running on GitHub Pages and if the path includes the repository name
+    // This logic assumes the repository name is part of the URL path.
+    if (window.location.hostname.endsWith('github.io') || window.location.hostname === 'localhost') {
+        // For GitHub Pages, the path typically includes /repo-name/
+        // For local development, if you're serving from a subdirectory like /pagina_bioadubo,
+        // this will also correctly set the basePath.
+        if (window.location.pathname.startsWith('/' + repoName + '/')) {
+            basePath = '/' + repoName + '/';
         }
+        // If it's a user/organization page (e.g., leodma.github.io) without a repo name in path,
+        // or local development at root, basePath remains '/'
+    }
+    // If running on a custom domain or other hosting, basePath remains '/' unless explicitly set.
     }
     // If running locally or on a root domain, basePath remains '/'
 
