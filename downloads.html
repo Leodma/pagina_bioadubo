@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioadubo - Downloads</title>
+    <!-- Script para definir a base URL dinamicamente para GitHub Pages -->
+    <script>
+        // Determine o caminho base para GitHub Pages ou desenvolvimento local
+        let basePath = '/';
+        const repoName = 'pagina_bioadubo'; // Defina o nome do seu repositório aqui
+
+        // Se estiver no GitHub Pages (dominio .github.io), o basePath será /repoName/
+        if (window.location.hostname.endsWith('github.io')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Se estiver em localhost e o caminho incluir o nome do repositório (ex: via servidor local)
+        else if (window.location.hostname === 'localhost' && window.location.pathname.startsWith('/' + repoName + '/')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Caso contrário (ex: desenvolvimento local na raiz ou domínio personalizado), basePath permanece '/'
+
+        // Cria e adiciona a tag <base> ao head do documento
+        const baseTag = document.createElement('base');
+        baseTag.href = basePath;
+        document.head.prepend(baseTag); // Garante que a tag <base> seja a primeira no <head>
+    </script>
+    <!-- Link para o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links para as fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="static/css/style.css"> 
+</head>
+<body class="bg-gray-50">
+
+    <!-- Placeholder para o Cabeçalho (será carregado via JavaScript) -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-28"> <!-- Aumentado padding-top para compensar o cabeçalho fixo -->
+        <!-- SEÇÃO DE TOPO COM IMAGEM PNG E COR DE FUNDO -->
+        <section class="relative bg-green-700 h-64 md:h-80 lg:h-96 flex flex-col items-center justify-center text-white overflow-hidden">
+            <!-- Imagem PNG centralizada -->
+            <img src="https://placehold.co/1920x400/0A6B4A/FFFFFF?text=DOWNLOADS" alt="[Imagem de fundo de downloads]" class="absolute inset-0 w-full h-full object-cover object-center z-0">
+            <!-- Overlay com degradê para escurecer apenas os cantos -->
+            <div class="absolute inset-0 z-10" style="background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.5) 100%);"></div>
+            <div class="z-20 px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Downloads</h1>
+                <p class="text-xl md:text-2xl">Acesse materiais informativos e técnicos sobre o Bioadubo.</p>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-6 py-12 text-center">
+            <p class="text-xl text-gray-700 mb-12">Aqui você pode baixar nossos documentos, apresentações e folders.</p>
+
+            <!-- Lista de Documentos para Download (um abaixo do outro) -->
+            <div class="flex flex-col gap-6 mb-12 max-w-2xl mx-auto">
+                <!-- Documento: Apresentação Institucional -->
+                <div class="bg-white rounded-lg p-6 text-left shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-2">Apresentação Institucional</h2>
+                    <p class="text-gray-700 mb-4">
+                        Conheça a fundo a Bioadubo, nossa história, missão, visão e valores, e o impacto da nossa tecnologia.
+                    </p>
+                    <a href="downloads/apresentacao.pdf" target="_blank" class="inline-block bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Baixar PDF
+                    </a>
+                </div>
+
+                <!-- Documento: Folder de Aplicação -->
+                <div class="bg-white rounded-lg p-6 text-left shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-2">Folder: Guia de Aplicação</h2>
+                    <p class="text-gray-700 mb-4">
+                        Instruções detalhadas sobre como aplicar o Bioadubo em diversas culturas para otimizar os resultados.
+                    </p>
+                    <a href="downloads/folder-aplicacao.pdf" target="_blank" class="inline-block bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Baixar PDF
+                    </a>
+                </div>
+
+                <!-- Documento: Folder Fases da Lua -->
+                <div class="bg-white rounded-lg p-6 text-left shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-2">Folder: Fases da Lua e Cultivo</h2>
+                    <p class="text-gray-700 mb-4">
+                        Entenda a influência das fases da lua no desenvolvimento das plantas e como isso se relaciona com o Bioadubo.
+                    </p>
+                    <a href="downloads/folder-fases-da-lua.pdf" target="_blank" class="inline-block bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Baixar PDF
+                    </a>
+                </div>
+
+                <!-- Documento: Folder Reflorestamento -->
+                <div class="bg-white rounded-lg p-6 text-left shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-2">Folder: Bioadubo no Reflorestamento</h2>
+                    <p class="text-gray-700 mb-4">
+                        Descubra como o Bioadubo pode acelerar o crescimento de mudas e árvores em projetos de reflorestamento.
+                    </p>
+                    <a href="downloads/folder-reflorestamento.pdf" target="_blank" class="inline-block bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Baixar PDF
+                    </a>
+                </div>
+
+                <!-- Documento: Folder Galão 5 Litros -->
+                <div class="bg-white rounded-lg p-6 text-left shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <h2 class="text-2xl font-bold text-green-700 mb-2">Folder: Bioadubo Galão 5 Litros</h2>
+                    <p class="text-gray-700 mb-4">
+                        Informações detalhadas sobre o nosso Biofertilizante na embalagem de 5 litros, ideal para médios produtores.
+                    </p>
+                    <a href="downloads/folder-galao-5-litros.pdf" target="_blank" class="inline-block bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                        Baixar PDF
+                    </a>
+                </div>
+            </div>
+
+            <a href="/" class="inline-block mt-6 bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition-colors">
+                &larr; Voltar para a Página Inicial
+            </a>
+        </div>
+    </main>
+
+    <!-- Placeholder para o Rodapé (será carregado via JavaScript) -->
+    <div id="footer-placeholder"></div>
+    <script src="static/js/scripts.js"></script>
+</body>
+</html>
