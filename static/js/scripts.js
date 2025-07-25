@@ -17,6 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // If running on a custom domain or other hosting, basePath remains '/' unless explicitly set.
     // If running locally or on a root domain, basePath remains '/'
+        function adjustHeaderLinks() {
+        const headerPlaceholder = document.getElementById('header-placeholder');
+        if (headerPlaceholder) {
+            const links = headerPlaceholder.querySelectorAll('a');
+            links.forEach(link => {
+                let href = link.getAttribute('href');
+
+                // Tratamento especial para o link da página inicial (geralmente '/' ou vazio)
+                // Se o link for para a raiz do site, ou vazio, ou uma âncora simples, direciona para o basePath
+                if (href === '/' || href === '' || href === '#') {
+                    link.setAttribute('href', basePath);
+                    console.log(`Link ajustado para home: ${link.outerHTML}`);
+                    return; // Passa para o próximo link após ajustar o link da home
+                }
+
+                // Lógica original para outros links absolutos internos
+                // Verifica se o link é um caminho absoluto interno (começa com / mas não é externo)
+                if (href && href.startsWith('/') && !href.startsWith('//')) {
+                    // Evita duplicar o basePath se já estiver lá
+                    if (!href.startsWith(basePath)) {
+                        link.setAttribute('href', basePath + href.substring(1)); // Remove a barra inicial do href e adiciona o basePath
+                        console.log(`Link ajustado (caminho absoluto): ${link.outerHTML}`);
+                    }
+                }
+            });
+        }
+    }
 
     // Existing header and footer loading logic, now using basePath
     fetch(basePath + 'header.html')
