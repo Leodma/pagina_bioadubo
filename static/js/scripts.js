@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-document.addEventListener('DOMContentLoaded', () => {
     // Determine the base path for GitHub Pages or local development
     let basePath = '/';
     const repoName = 'pagina_bioadubo'; // Defina o nome do seu repositório aqui
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // or local development at root, basePath remains '/'
     }
     // If running on a custom domain or other hosting, basePath remains '/' unless explicitly set.
-    }
     // If running locally or on a root domain, basePath remains '/'
 
     // Existing header and footer loading logic, now using basePath
