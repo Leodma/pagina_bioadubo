@@ -1,68 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Determine the base path for GitHub Pages or local development
+    // Determine o caminho base para GitHub Pages ou desenvolvimento local
+    // A lógica da tag <base href> já está no HTML, mas mantemos basePath para fetch()
     let basePath = '/';
     const repoName = 'pagina_bioadubo'; // Defina o nome do seu repositório aqui
 
-    // Check if running on GitHub Pages and if the path includes the repository name
-    // This logic assumes the repository name is part of the URL path.
     if (window.location.hostname.endsWith('github.io') || window.location.hostname === 'localhost') {
-        // For GitHub Pages, the path typically includes /repo-name/
-        // For local development, if you're serving from a subdirectory like /pagina_bioadubo,
-        // this will also correctly set the basePath.
         if (window.location.pathname.startsWith('/' + repoName + '/')) {
             basePath = '/' + repoName + '/';
-        }
-        // If it's a user/organization page (e.g., leodma.github.io) without a repo name in path,
-        // or local development at root, basePath remains '/'
-    }
-    // If running on a custom domain or other hosting, basePath remains '/' unless explicitly set.
-    // If running locally or on a root domain, basePath remains '/'
-        function adjustHeaderLinks() {
-        const headerPlaceholder = document.getElementById('header-placeholder');
-        if (headerPlaceholder) {
-            const links = headerPlaceholder.querySelectorAll('a');
-            links.forEach(link => {
-                let href = link.getAttribute('href');
-
-                // Tratamento especial para o link da página inicial (geralmente '/' ou vazio)
-                // Se o link for para a raiz do site, ou vazio, ou uma âncora simples, direciona para o basePath
-                if (href === '/' || href === '' || href === '#') {
-                    link.setAttribute('href', basePath);
-                    console.log(`Link ajustado para home: ${link.outerHTML}`);
-                    return; // Passa para o próximo link após ajustar o link da home
-                }
-
-                // Lógica original para outros links absolutos internos
-                // Verifica se o link é um caminho absoluto interno (começa com / mas não é externo)
-                if (href && href.startsWith('/') && !href.startsWith('//')) {
-                    // Evita duplicar o basePath se já estiver lá
-                    if (!href.startsWith(basePath)) {
-                        link.setAttribute('href', basePath + href.substring(1)); // Remove a barra inicial do href e adiciona o basePath
-                        console.log(`Link ajustado (caminho absoluto): ${link.outerHTML}`);
-                    }
-                }
-            });
         }
     }
 
     // Existing header and footer loading logic, now using basePath
-    fetch(basePath + 'header.html')
-        .then(response => response.text())
+    // Ajustado o caminho para assumir que header.html está na raiz do projeto
+    const headerPath = basePath + 'header.html';
+    console.log('Tentando carregar o cabeçalho de:', headerPath); // Log para depuração
+    fetch(headerPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status} ao carregar ${headerPath}`);
+            }
+            return response.text();
+        })
         .then(html => {
             document.getElementById('header-placeholder').innerHTML = html;
             const headerLogo = document.getElementById('header-logo');
             if (headerLogo) {
-                // Ensure the logo path also uses the basePath
-                headerLogo.src = basePath + 'static/imagens/logo-horizontal.svg';
+                // O caminho da logo agora é relativo à base definida pela tag <base> no HTML
+                // Se a tag <base> estiver funcionando, 'static/imagens/logo-horizontal.svg' será suficiente.
+                // Caso contrário, use basePath + 'static/imagens/logo-horizontal.svg';
+                headerLogo.src = 'static/imagens/logo-horizontal.svg';
                 console.log('Caminho da logo definido para:', headerLogo.src);
             }
+            // A função adjustHeaderLinks foi removida, pois a tag <base> cuida dos links HTML
         })
         .catch(error => console.error('Erro ao carregar o cabeçalho:', error));
 
-    fetch(basePath + 'footer.html')
-        .then(response => response.text())
+    // Ajustado o caminho para assumir que footer.html está na raiz do projeto
+    const footerPath = basePath + 'footer.html';
+    console.log('Tentando carregar o rodapé de:', footerPath); // Log para depuração
+    fetch(footerPath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status} ao carregar ${footerPath}`);
+            }
+            return response.text();
+        })
         .then(html => {
             document.getElementById('footer-placeholder').innerHTML = html;
+            // A função adjustAllInternalLinks não é mais necessária aqui
         })
         .catch(error => console.error('Erro ao carregar o rodapé:', error));
 

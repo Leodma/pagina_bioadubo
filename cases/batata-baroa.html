@@ -3,7 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bioadubo - Case de Sucesso: Batata Baroa</title>
+    <title>Bioadubo - Case de Sucesso: Arroz</title>
+    <!-- Script para definir a base URL dinamicamente para GitHub Pages -->
+    <script>
+        // Determine o caminho base para GitHub Pages ou desenvolvimento local
+        let basePath = '/';
+        const repoName = 'pagina_bioadubo'; // Defina o nome do seu repositório aqui
+
+        // Se estiver no GitHub Pages (dominio .github.io), o basePath será /repoName/
+        if (window.location.hostname.endsWith('github.io')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Se estiver em localhost e o caminho incluir o nome do repositório (ex: via servidor local)
+        else if (window.location.hostname === 'localhost' && window.location.pathname.startsWith('/' + repoName + '/')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Caso contrário (ex: desenvolvimento local na raiz ou domínio personalizado), basePath permanece '/'
+
+        // Cria e adiciona a tag <base> ao head do documento
+        const baseTag = document.createElement('base');
+        baseTag.href = basePath;
+        document.head.prepend(baseTag); // Garante que a tag <base> seja a primeira no <head>
+    </script>
     <!-- Link para o Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Links para as fontes do Google Fonts -->
@@ -11,8 +32,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Link para o seu arquivo CSS personalizado -->
-    <link rel="stylesheet" href="../static/css/style.css"> 
-    <!-- Link para o ApexCharts -->
+    <link rel="stylesheet" href="static/css/style.css"> 
+    <!-- Link para o ApexCharts (se necessário na página) -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body class="bg-gray-50">
