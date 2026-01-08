@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioadubo - Biofertilizante Minha Hortinha</title>
+    <!-- Script para definir a base URL dinamicamente para GitHub Pages -->
+    <script>
+        // Determine o caminho base para GitHub Pages ou desenvolvimento local
+        let basePath = '/';
+        const repoName = 'pagina_bioadubo'; // Defina o nome do seu repositório aqui
+
+        // Se estiver no GitHub Pages (dominio .github.io), o basePath será /repoName/
+        if (window.location.hostname.endsWith('github.io')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Se estiver em localhost e o caminho incluir o nome do repositório (ex: via servidor local)
+        else if (window.location.hostname === 'localhost' && window.location.pathname.startsWith('/' + repoName + '/')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Caso contrário (ex: desenvolvimento local na raiz ou domínio personalizado), basePath permanece '/'
+
+        // Cria e adiciona a tag <base> ao head do documento
+        const baseTag = document.createElement('base');
+        baseTag.href = basePath;
+        document.head.prepend(baseTag); // Garante que a tag <base> seja a primeira no <head>
+    </script>
+    <!-- Link para o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links para as fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="static/css/style.css"> 
+</head>
+<body class="bg-gray-50">
+
+    <!-- Placeholder para o Cabeçalho (será carregado via JavaScript) -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-23">
+        <!-- SEÇÃO DE TOPO -->
+        <section class="relative bg-green-700 h-64 md:h-80 lg:h-96 flex flex-col items-center justify-center text-white overflow-hidden">
+            <div class="absolute inset-0 z-10" style="background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.2) 100%);"></div>
+            <div class="z-20 px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Biofertilizante</h1>
+                <p class="text-xl md:text-2xl">Húmus de Minhoca Orgânico</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE DESCRIÇÃO PRINCIPAL -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-green-700 mb-6">O que é o Biofertilizante?</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        O biofertilizante incluído no kit Minha Hortinha é um <strong>adubo orgânico 100% natural</strong>, produzido a partir de húmus de minhoca. Esse é o mesmo adubo utilizado nos biofertilizantes Bioadubo de uso profissional, adaptado para o contexto educativo das crianças.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        É um excelente nutriente para o solo que potencializa o crescimento das plantas, garantindo desenvolvimento mais rápido e saudável, sem o uso de químicos sintéticos agressivos.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        Ao usar o biofertilizante, as crianças entendem na prática que plantas precisam de nutrição especial e que isso pode vir de fontes naturais e sustentáveis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE BENEFÍCIOS -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-green-700 mb-10 text-center">Benefícios do Húmus de Minhoca</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Benefício 1 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Rico em Nutrientes
+                            </h3>
+                            <p class="text-gray-600">
+                                Contém nitrogênio, fósforo, potássio e micronutrientes essenciais para o crescimento equilibrado das plantas.
+                            </p>
+                        </div>
+
+                        <!-- Benefício 2 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Melhora a Estrutura do Solo
+                            </h3>
+                            <p class="text-gray-600">
+                                Aumenta a capacidade de retenção de água e promove a aeração, criando um ambiente ideal para o crescimento radicular.
+                            </p>
+                        </div>
+
+                        <!-- Benefício 3 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                100% Natural
+                            </h3>
+                            <p class="text-gray-600">
+                                Produzido por minhocas de forma completamente natural, sem pesticidas, hormonas sintéticas ou aditivos químicos.
+                            </p>
+                        </div>
+
+                        <!-- Benefício 4 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Potencializa Crescimento
+                            </h3>
+                            <p class="text-gray-600">
+                                Plantas adubadas com húmus de minhoca crescem mais rápido, desenvolvem raízes mais fortes e apresentam maior vigor.
+                            </p>
+                        </div>
+
+                        <!-- Benefício 5 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Sustentável
+                            </h3>
+                            <p class="text-gray-600">
+                                Fechando o ciclo da natureza: os resíduos orgânicos são transformados em nutrientes pelas minhocas, um exemplo vivo de sustentabilidade.
+                            </p>
+                        </div>
+
+                        <!-- Benefício 6 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Seguro para Crianças
+                            </h3>
+                            <p class="text-gray-600">
+                                Completamente seguro de manipular, mesmo se houver contato direto com a pele. Não causa irritações ou alergias.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE COMO USAR -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-green-700 mb-10 text-center">Como Usar o Biofertilizante</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Passo 1 -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-600 text-white font-bold text-lg">1</div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Preparação da Caixinha</h3>
+                                <p class="text-gray-600">
+                                    Coloque o solo na caixinha de cultivo. Quando o solo ocupar cerca de 50% do espaço, adicione uma camada de biofertilizante (aproximadamente uma colher de sopa).
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Passo 2 -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-600 text-white font-bold text-lg">2</div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Misture Bem</h3>
+                                <p class="text-gray-600">
+                                    Misture o húmus de minhoca delicadamente com o solo para distribuir uniformemente os nutrientes por toda a caixinha.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Passo 3 -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-600 text-white font-bold text-lg">3</div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Complete o Solo</h3>
+                                <p class="text-gray-600">
+                                    Complete o restante da caixinha com mais solo, deixando espaço para as sementes e cobertura final.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Passo 4 -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-600 text-white font-bold text-lg">4</div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Plante as Sementes</h3>
+                                <p class="text-gray-600">
+                                    Agora proceda com o plantio das sementes seguindo as instruções específicas de cada sachê. O solo já estará nutrido e pronto!
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Passo 5 -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-600 text-white font-bold text-lg">5</div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Acompanhe o Crescimento</h3>
+                                <p class="text-gray-600">
+                                    Observe como as plantas crescem mais vigorosamente com o biofertilizante. Anote as observações no bloco de anotações fornecido!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CURIOSIDADE -->
+        <section class="py-12 bg-green-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-green-700 mb-6">Você Sabia?</h2>
+                    <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-orange-600">
+                        <p class="text-lg text-gray-700 mb-4">
+                            Uma minhoca pode processar seu próprio peso em matéria orgânica a cada dia! Isso significa que minhocas são pequenos "laboratórios naturais" que convertem resíduos em nutrientes valiosos para as plantas.
+                        </p>
+                        <p class="text-lg text-gray-700">
+                            No kit Minha Hortinha, você está usando um produto resultado desse processo natural fascinante. É educação ambiental prática!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE NAVEGAÇÃO -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Conheça os Outros Componentes</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-center">
+                        <a href="minha-hortinha-caixinhas.html" class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                            <h4 class="font-bold text-gray-800 text-sm">Caixinhas de Cultivo</h4>
+                            <p class="text-gray-600 text-xs">Biodegradáveis e reutilizáveis</p>
+                        </a>
+
+                        <a href="minha-hortinha-caixa-secundaria.html" class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                            </svg>
+                            <h4 class="font-bold text-gray-800 text-sm">Caixa Secundária</h4>
+                            <p class="text-gray-600 text-xs">Jogo educativo</p>
+                        </a>
+
+                        <a href="minha-hortinha-bloco-anotacoes.html" class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <h4 class="font-bold text-gray-800 text-sm">Bloco de Anotações</h4>
+                            <p class="text-gray-600 text-xs">Registro do aprendizado</p>
+                        </a>
+
+                        <a href="minha-hortinha-cartilha-educativa.html" class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.248 6.253 2.25 10.249 2.25 16.253v.003m9.75-13c5.002 0 8.998 3.996 8.998 8.999v.003M12 6.253v13m0-13C17.002 6.253 21 10.248 21 16.252"></path>
+                            </svg>
+                            <h4 class="font-bold text-gray-800 text-sm">Cartilha Educativa</h4>
+                            <p class="text-gray-600 text-xs">Fundamentos e atividades</p>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="minha-hortinha.html" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                            ← Voltar ao Projeto Minha Hortinha
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Placeholder para o Rodapé (será carregado via JavaScript) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Script para carregamento de header e footer -->
+    <script src="static/js/scripts.js"></script>
+</body>
+</html>

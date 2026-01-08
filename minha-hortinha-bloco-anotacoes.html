@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioadubo - Bloco de Anotações Minha Hortinha</title>
+    <!-- Script para definir a base URL dinamicamente para GitHub Pages -->
+    <script>
+        // Determine o caminho base para GitHub Pages ou desenvolvimento local
+        let basePath = '/';
+        const repoName = 'pagina_bioadubo'; // Defina o nome do seu repositório aqui
+
+        // Se estiver no GitHub Pages (dominio .github.io), o basePath será /repoName/
+        if (window.location.hostname.endsWith('github.io')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Se estiver em localhost e o caminho incluir o nome do repositório (ex: via servidor local)
+        else if (window.location.hostname === 'localhost' && window.location.pathname.startsWith('/' + repoName + '/')) {
+            basePath = '/' + repoName + '/';
+        }
+        // Caso contrário (ex: desenvolvimento local na raiz ou domínio personalizado), basePath permanece '/'
+
+        // Cria e adiciona a tag <base> ao head do documento
+        const baseTag = document.createElement('base');
+        baseTag.href = basePath;
+        document.head.prepend(baseTag); // Garante que a tag <base> seja a primeira no <head>
+    </script>
+    <!-- Link para o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Links para as fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="static/css/style.css"> 
+</head>
+<body class="bg-gray-50">
+
+    <!-- Placeholder para o Cabeçalho (será carregado via JavaScript) -->
+    <div id="header-placeholder"></div>
+
+    <main class="pt-23">
+        <!-- SEÇÃO DE TOPO -->
+        <section class="relative bg-green-700 h-64 md:h-80 lg:h-96 flex flex-col items-center justify-center text-white overflow-hidden">
+            <div class="absolute inset-0 z-10" style="background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.2) 100%);"></div>
+            <div class="z-20 px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Bloco de Anotações</h1>
+                <p class="text-xl md:text-2xl">Seu Diário de Aprendizado</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE DESCRIÇÃO PRINCIPAL -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-green-700 mb-6">O que é o Bloco de Anotações?</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        O bloco de anotações é um componente essencial do kit Minha Hortinha que acompanha a criança durante toda a jornada de aprendizado. É um espaço dedicado para <strong>registrar observações, descobertas e curiosidades</strong> sobre o processo de cultivo e o ciclo de vida das plantas.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Este bloco transforma a experiência prática em conhecimento documentado, permitindo que a criança desenvolva habilidades de observação, escrita, desenho e pensamento científico.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        Além disso, cria uma memória visual do processo de crescimento que pode ser compartilhada com familiares e amigos, tornando o aprendizado ainda mais especial!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE IMPORTÂNCIA -->
+        <section class="py-12 bg-blue-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-10 text-center">Por Que Anotar é Importante?</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Razão 1 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Desenvolve Observação
+                            </h3>
+                            <p class="text-gray-600">
+                                Quando anotamos, prestamos mais atenção aos detalhes. A criança aprende a observar mudanças sutis no crescimento, na cor das folhas e no desenvolvimento das raízes.
+                            </p>
+                        </div>
+
+                        <!-- Razão 2 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Estimula o Pensamento Científico
+                            </h3>
+                            <p class="text-gray-600">
+                                Registrar hipóteses, experimentos e resultados é como fazer ciência! A criança aprende a metodologia científica na prática.
+                            </p>
+                        </div>
+
+                        <!-- Razão 3 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Melhora a Expressão
+                            </h3>
+                            <p class="text-gray-600">
+                                Escrever e desenhar ajuda a criança a comunicar ideias, dúvidas e descobertas, desenvolvendo habilidades de expressão e comunicação.
+                            </p>
+                        </div>
+
+                        <!-- Razão 4 -->
+                        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"></path>
+                                </svg>
+                                Cria uma Memória do Processo
+                            </h3>
+                            <p class="text-gray-600">
+                                O bloco se torna um registro permanente da jornada de aprendizado, permitindo comparar o início com o fim e ver o progresso realizado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE O QUE ANOTAR -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-green-700 mb-10 text-center">O Que Você Pode Anotar?</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Categoria 1 -->
+                        <div class="bg-gray-50 rounded-lg p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">📅 Data e Hora</h3>
+                            <p class="text-gray-600">
+                                Sempre comece suas anotações com a data e hora. Isso ajuda a acompanhar o tempo de crescimento e entender os ciclos de vida das plantas.
+                            </p>
+                        </div>
+
+                        <!-- Categoria 2 -->
+                        <div class="bg-gray-50 rounded-lg p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">🌱 Observações Físicas</h3>
+                            <p class="text-gray-600">
+                                Descreva como a planta está. Quantos centímetros de altura tem? As folhas estão verdes e viçosas? Há sinais de novas folhas ou flores nascendo?
+                            </p>
+                        </div>
+
+                        <!-- Categoria 3 -->
+                        <div class="bg-gray-50 rounded-lg p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">💧 Condições de Cuidado</h3>
+                            <p class="text-gray-600">
+                                Quanto você regou? Qual foi o clima (ensolarado, nublado, chuvoso)? Em que local está a caixinha? Essas informações ajudam a entender o que a planta precisa.
+                            </p>
+                        </div>
+
+                        <!-- Categoria 4 -->
+                        <div class="bg-gray-50 rounded-lg p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">🤔 Dúvidas e Curiosidades</h3>
+                            <p class="text-gray-600">
+                                Tem uma dúvida? Achou algo estranho? Quer saber por quê a folha ficou amarela? Anotando, você pode discutir depois com um adulto ou pesquisar a resposta.
+                            </p>
+                        </div>
+
+                        <!-- Categoria 5 -->
+                        <div class="bg-gray-50 rounded-lg p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">✏️ Desenhos e Ilustrações</h3>
+                            <p class="text-gray-600">
+                                Desenhar a planta é uma excelente forma de observação. Faça desenhos da planta em diferentes estágios. Isso desenvolve habilidades artísticas e de observação.
+                            </p>
+                        </div>
+
+                        <!-- Categoria 6 -->
+                        <div class="bg-gray-50 rounded-lg p-6 border-l-4 border-blue-600">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">💭 Aprendizados e Reflexões</h3>
+                            <p class="text-gray-600">
+                                O que você aprendeu hoje? Qual é a próxima etapa? O que vai tentar diferente na próxima vez? Reflexão é chave para o aprendizado profundo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE DICAS -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-green-700 mb-10 text-center">Dicas Para Anotar Melhor</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start bg-white rounded-lg p-4">
+                            <span class="bg-green-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0 mr-4">✓</span>
+                            <p class="text-gray-700"><strong>Anotações regulares:</strong> Tente anotar pelo menos uma vez por dia. Observações diárias revelam mais detalhes do processo.</p>
+                        </div>
+
+                        <div class="flex items-start bg-white rounded-lg p-4">
+                            <span class="bg-green-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0 mr-4">✓</span>
+                            <p class="text-gray-700"><strong>Seja específico:</strong> Em vez de "cresceu", escreva "cresceu 2 cm e apareceu uma nova folha". Detalhes fazem diferença!</p>
+                        </div>
+
+                        <div class="flex items-start bg-white rounded-lg p-4">
+                            <span class="bg-green-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0 mr-4">✓</span>
+                            <p class="text-gray-700"><strong>Use desenhos:</strong> Um desenho rápido pode contar mais que muitas palavras. Combine texto e ilustrações!</p>
+                        </div>
+
+                        <div class="flex items-start bg-white rounded-lg p-4">
+                            <span class="bg-green-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0 mr-4">✓</span>
+                            <p class="text-gray-700"><strong>Não se preocupe com perfeição:</strong> Este é seu espaço de aprendizado pessoal. Letra, desenho e anotações não precisam ser perfeitas!</p>
+                        </div>
+
+                        <div class="flex items-start bg-white rounded-lg p-4">
+                            <span class="bg-green-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0 mr-4">✓</span>
+                            <p class="text-gray-700"><strong>Cole fotografias:</strong> Se possível, tire fotos da planta a cada semana e cole no bloco para ter um registro visual super legal!</p>
+                        </div>
+
+                        <div class="flex items-start bg-white rounded-lg p-4">
+                            <span class="bg-green-700 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0 mr-4">✓</span>
+                            <p class="text-gray-700"><strong>Compartilhe seu bloco:</strong> Mostre suas anotações para família e amigos. Pode ser que alguém tenha ideias para ajudar sua hortinha!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CONCLUSÃO -->
+        <section class="py-12 bg-blue-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-blue-700 mb-6">Seu Bloco é Especial!</h2>
+                    <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
+                        <p class="text-lg text-gray-700 mb-4">
+                            Lembre-se: o bloco de anotações do Minha Hortinha é mais do que um registro. É uma prova do seu empenho, criatividade e aprendizado ao longo do tempo.
+                        </p>
+                        <p class="text-lg text-gray-700 mb-4">
+                            Anos depois, você poderá folhear este bloco e relembrar cada momento dessa experiência especial de cultivar e aprender brincando!
+                        </p>
+                        <p class="text-xl font-bold text-green-700">
+                            Então, pegue seu lápis, sua criatividade e comece a documentar sua jornada verde! 🌱📖
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE NAVEGAÇÃO -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Conheça os Outros Componentes</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-center">
+                        <a href="minha-hortinha-caixinhas.html" class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                            <h4 class="font-bold text-gray-800 text-sm">Caixinhas de Cultivo</h4>
+                            <p class="text-gray-600 text-xs">Biodegradáveis e reutilizáveis</p>
+                        </a>
+
+                        <a href="minha-hortinha-caixa-secundaria.html" class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                            </svg>
+                            <h4 class="font-bold text-gray-800 text-sm">Caixa Secundária</h4>
+                            <p class="text-gray-600 text-xs">Jogo educativo</p>
+                        </a>
+
+                        <a href="minha-hortinha-biofertilizante.html" class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <h4 class="font-bold text-gray-800 text-sm">Biofertilizante</h4>
+                            <p class="text-gray-600 text-xs">Adubo orgânico</p>
+                        </a>
+
+                        <a href="minha-hortinha-cartilha-educativa.html" class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">
+                            <svg class="w-12 h-12 mx-auto mb-2 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.248 6.253 2.25 10.249 2.25 16.253v.003m9.75-13c5.002 0 8.998 3.996 8.998 8.999v.003M12 6.253v13m0-13C17.002 6.253 21 10.248 21 16.252"></path>
+                            </svg>
+                            <h4 class="font-bold text-gray-800 text-sm">Cartilha Educativa</h4>
+                            <p class="text-gray-600 text-xs">Fundamentos e atividades</p>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="minha-hortinha.html" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                            ← Voltar ao Projeto Minha Hortinha
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Placeholder para o Rodapé (será carregado via JavaScript) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Script para carregamento de header e footer -->
+    <script src="static/js/scripts.js"></script>
+</body>
+</html>
