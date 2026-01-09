@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="static/css/style.css"> 
     <!-- Link para o ApexCharts (se necessário na página) -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-50">
 
@@ -42,14 +44,21 @@
     <div id="header-placeholder"></div>
 
     <main class="pt-23">
-        <!-- SEÇÃO DE TOPO COM IMAGEM -->
+        <!-- SEÇÃO DE TOPO COM IMAGEM PNG E COR DE FUNDO -->
         <section class="relative bg-green-700 h-64 md:h-80 lg:h-96 flex flex-col items-center justify-center text-white overflow-hidden">
-            <div class="absolute inset-0 z-10" style="background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.2) 100%);"></div>
-            <div class="z-20 px-4 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Minha Hortinha</h1>
-                <p class="text-xl md:text-2xl">Plantando e Aprendendo Brincando!</p>
+            <!-- Container para a imagem e o overlay de degradê -->
+            <div class="absolute inset-0 z-0">
+                <!-- Imagem PNG centralizada -->
+                <img src="static/imagens/topo-minha-hortinha.webp" alt="" class="w-full h-full object-cover object-center">
+                <!-- Overlay com degradê para escurecer apenas os cantos -->
+                <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.5) 100%);"></div>
             </div>
         </section>
+
+        <div class="container mx-auto px-6 py-6 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-green-700 leading-tight mb-2">Minha Hortinha</h1>
+            <p class="text-xl md:text-2xl text-gray-700 mb-4">Plantando e Aprendendo Brincando!</p>
+        </div>
 
         <!-- SEÇÃO DE APRESENTAÇÃO DO PROJETO -->
         <section class="py-12 bg-white">
@@ -64,6 +73,10 @@
                         </p>
                     </div>
 
+                    <div class="my-10 text-center">
+                        <img src="static/imagens/caixinhas-transparente.webp" alt="Caixinhas Minha Hortinha" class="w-full max-w-2xl mx-auto rounded-lg">
+                    </div>
+
                     <h3 class="text-2xl font-bold text-green-700 mb-4">O que é o Minha Hortinha?</h3>
                     <p class="text-lg text-gray-700 mb-6">
                         O projeto é composto por um kit educativo completo que promove o contato direto com a terra e desperta o interesse pelas boas práticas ambientais. A experiência combina duas frentes principais:
@@ -73,9 +86,7 @@
                         <!-- Frente 1: Experiência de Plantio -->
                         <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-700">
                             <h4 class="text-xl font-bold text-green-700 mb-3 flex items-center">
-                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
-                                </svg>
+                                <i class="fas fa-leaf w-6 h-6 mr-2"></i>
                                 Experiência de Plantio
                             </h4>
                             <p class="text-gray-700">
@@ -86,15 +97,36 @@
                         <!-- Frente 2: Jogo Caminhos da Colheita -->
                         <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-700">
                             <h4 class="text-xl font-bold text-green-700 mb-3 flex items-center">
-                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M13 5h8v8h-8V5zm-2-2v2H9c-1.1 0-2 .9-2 2v2H3v2h4v2H3v2h4v2c0 1.1.9 2 2 2h2v2h2v-2h2v2h2v-2h2c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2h-8V3h-2z"></path>
-                                </svg>
+                                <i class="fas fa-dice-d6 w-6 h-6 mr-2"></i>
                                 Jogo Caminhos da Colheita
                             </h4>
                             <p class="text-gray-700">
                                 Um jogo de tabuleiro educativo, criado a partir da própria embalagem secundária, que ensina sobre os desafios e recompensas da vida no campo.
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CARROSSEL -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative bg-gray-200 rounded-lg overflow-hidden" style="aspect-ratio: 2 / 1;" id="carousel-container">
+                        <!-- Imagens do Carrossel (geradas dinamicamente) -->
+                        <div class="carousel-slides relative w-full h-full"></div>
+
+                        <!-- Botões de Navegação -->
+                        <button class="carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 z-10 transition-all">
+                            <i class="fas fa-chevron-left w-6 h-6 text-gray-800"></i>
+                        </button>
+                        <button class="carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 z-10 transition-all">
+                            <i class="fas fa-chevron-right w-6 h-6 text-gray-800"></i>
+                        </button>
+
+                        <!-- Indicadores (gerados dinamicamente) -->
+                        <div class="carousel-indicators absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10"></div>
                     </div>
                 </div>
             </div>
@@ -112,10 +144,8 @@
                         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-700 text-white">
-                                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                        </svg>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-md bg-green-700 text-white">
+                                        <i class="fas fa-leaf fa-2x"></i>
                                     </div>
                                 </div>
                                 <div class="ml-4">
@@ -131,10 +161,8 @@
                         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-700 text-white">
-                                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.248 6.253 2.25 10.249 2.25 16.253v.003m9.75-13c5.002 0 8.998 3.996 8.998 8.999v.003M12 6.253v13m0-13C17.002 6.253 21 10.248 21 16.252"></path>
-                                        </svg>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-md bg-green-700 text-white">
+                                        <i class="fas fa-book fa-2x"></i>
                                     </div>
                                 </div>
                                 <div class="ml-4">
@@ -150,10 +178,8 @@
                         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-700 text-white">
-                                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-md bg-green-700 text-white">
+                                        <i class="fa-solid fa-comments-dollar fa-2x"></i>
                                     </div>
                                 </div>
                                 <div class="ml-4">
@@ -169,10 +195,8 @@
                         <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-700 text-white">
-                                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m0 0a9 9 0 019-9"></path>
-                                        </svg>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-md bg-green-700 text-white">
+                                        <i class="fas fa-globe fa-2x"></i>
                                     </div>
                                 </div>
                                 <div class="ml-4">
@@ -219,10 +243,8 @@
                 <div id="carousel-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                     <!-- Componente 1: Caixinhas de Cultivo -->
                     <a href="minha-hortinha-caixinhas.html" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
-                        <div class="w-full h-64 bg-gradient-to-br from-green-200 to-green-300 flex items-center justify-center">
-                            <svg class="w-32 h-32 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
-                            </svg>
+                        <div class="w-full h-64 bg-gradient-to-br from-green-200 to-green-300 flex items-center justify-center overflow-hidden">
+                            <img src="static/imagens/kit-caixinha.webp" alt="Caixinhas de Cultivo" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="p-4">
                             <h3 class="font-bold text-gray-800 text-lg">Caixinhas de Cultivo</h3>
@@ -233,10 +255,8 @@
 
                     <!-- Componente 2: Caixa Secundária -->
                     <a href="minha-hortinha-caixa-secundaria.html" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
-                        <div class="w-full h-64 bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center">
-                            <svg class="w-32 h-32 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
-                            </svg>
+                        <div class="w-full h-64 bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center overflow-hidden">
+                            <img src="static/imagens/kit-caixa-secundaria.webp" alt="Caixa Secundária" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="p-4">
                             <h3 class="font-bold text-gray-800 text-lg">Caixa Secundária</h3>
@@ -247,10 +267,8 @@
 
                     <!-- Componente 3: Biofertilizante -->
                     <a href="minha-hortinha-biofertilizante.html" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
-                        <div class="w-full h-64 bg-gradient-to-br from-orange-200 to-orange-300 flex items-center justify-center">
-                            <svg class="w-32 h-32 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
+                        <div class="w-full h-64 bg-gradient-to-br from-orange-200 to-orange-300 flex items-center justify-center overflow-hidden">
+                            <img src="static/imagens/kit-fertilizante.png" alt="Biofertilizante" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="p-4">
                             <h3 class="font-bold text-gray-800 text-lg">Biofertilizante</h3>
@@ -261,10 +279,8 @@
 
                     <!-- Componente 4: Bloco de Anotações -->
                     <a href="minha-hortinha-bloco-anotacoes.html" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
-                        <div class="w-full h-64 bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center">
-                            <svg class="w-32 h-32 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
+                        <div class="w-full h-64 bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center overflow-hidden">
+                            <img src="static/imagens/kit-bloco.webp" alt="Bloco de Anotações" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="p-4">
                             <h3 class="font-bold text-gray-800 text-lg">Bloco de Anotações</h3>
@@ -275,10 +291,8 @@
 
                     <!-- Componente 5: Cartilha Educativa -->
                     <a href="minha-hortinha-cartilha-educativa.html" class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
-                        <div class="w-full h-64 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                            <svg class="w-32 h-32 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C6.248 6.253 2.25 10.249 2.25 16.253v.003m9.75-13c5.002 0 8.998 3.996 8.998 8.999v.003M12 6.253v13m0-13C17.002 6.253 21 10.248 21 16.252"></path>
-                            </svg>
+                        <div class="w-full h-64 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center overflow-hidden">
+                            <img src="static/imagens/kit-cartilha.webp" alt="Cartilha Educativa" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="p-4">
                             <h3 class="font-bold text-gray-800 text-lg">Cartilha Educativa</h3>
@@ -297,26 +311,10 @@
                 <p class="text-center text-gray-600 mb-12 text-lg">Acesso completo a recursos educativos para potencializar a experiência Minha Hortinha</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Material 1: Cartilha Educativa -->
-                    <a href="minha-hortinha-cartilha-educativa.html" class="bg-gray-50 rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow">
-                        <div class="flex justify-center mb-4">
-                            <svg class="w-16 h-16 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.248 6.253 2.25 10.249 2.25 16.253v.003m9.75-13c5.002 0 8.998 3.996 8.998 8.999v.003M12 6.253v13m0-13C17.002 6.253 21 10.248 21 16.252"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Cartilha Educativa</h3>
-                        <p class="text-gray-600 mb-6">Guia completo com fundamentos pedagógicos e atividades complementares para potencializar o aprendizado</p>
-                        <div class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                            Acessar Cartilha
-                        </div>
-                    </a>
-
                     <!-- Material 2: Bloco de Acompanhamento -->
                     <div class="bg-gray-50 rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow">
                         <div class="flex justify-center mb-4">
-                            <svg class="w-16 h-16 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
+                            <i class="fas fa-note-sticky fa-3x text-blue-700"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-3">Bloco de Acompanhamento</h3>
                         <p class="text-gray-600 mb-6">Registro detalhado do progresso de cada criança ao longo de toda a experiência</p>
@@ -328,9 +326,7 @@
                     <!-- Material 3: Questionário para Alunos -->
                     <div class="bg-gray-50 rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow">
                         <div class="flex justify-center mb-4">
-                            <svg class="w-16 h-16 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                            <i class="fas fa-comments fa-3x text-orange-700"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-3">Questionário para Alunos</h3>
                         <p class="text-gray-600 mb-6">Avaliação do aprendizado e impressões das crianças sobre a experiência Minha Hortinha</p>
@@ -342,9 +338,7 @@
                     <!-- Material 4: Questionário para Professores -->
                     <div class="bg-gray-50 rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow">
                         <div class="flex justify-center mb-4">
-                            <svg class="w-16 h-16 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                            </svg>
+                            <i class="fas fa-chalkboard-user fa-3x text-purple-700"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-3">Questionário para Professores</h3>
                         <p class="text-gray-600 mb-6">Coleta de feedback dos educadores sobre a implementação do projeto em sala de aula</p>
@@ -356,9 +350,7 @@
                     <!-- Material 5: Questionário para Famílias -->
                     <div class="bg-gray-50 rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow">
                         <div class="flex justify-center mb-4">
-                            <svg class="w-16 h-16 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c4.418 0 8-1.79 8-4s-3.582-4-8-4-8 1.79-8 4 3.582 4 8 4zm0 0c-4.418 0-8 1.79-8 4v4c0 2.21 3.582 4 8 4s8-1.79 8-4v-4c0-2.21-3.582-4-8-4z"></path>
-                            </svg>
+                            <i class="fas fa-people-roof fa-3x text-red-700"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-3">Questionário para Famílias</h3>
                         <p class="text-gray-600 mb-6">Percepção das famílias sobre o impacto do projeto no desenvolvimento das crianças</p>
@@ -370,12 +362,22 @@
                     <!-- Material 6: Manual do Educador -->
                     <div class="bg-gray-50 rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow">
                         <div class="flex justify-center mb-4">
-                            <svg class="w-16 h-16 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
+                            <i class="fas fa-book fa-3x text-indigo-700"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-3">Manual do Educador</h3>
                         <p class="text-gray-600 mb-6">Instruções detalhadas e dicas práticas para implementar o projeto Minha Hortinha com sucesso</p>
+                        <a href="#" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                            Baixar PDF
+                        </a>
+                    </div>
+
+                    <!-- Cartilha Educativa -->
+                    <div class="bg-white rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow">
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-scroll fa-3x text-green-700"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Cartilha Educativa</h3>
+                        <p class="text-gray-600 mb-6">Fundamentos pedagógicos, atividades e orientações para o aprendizado através da horta</p>
                         <a href="#" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-lg transition-colors">
                             Baixar PDF
                         </a>
@@ -387,11 +389,11 @@
         <!-- SEÇÃO DE FORMULÁRIO DE CONTATO -->
         <section class="py-12 bg-green-50">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-2 text-center">Tire Suas Dúvidas</h2>
-                <p class="text-center text-gray-600 mb-12 text-lg">Entre em contato com nossa equipe para maiores informações sobre sua hortinha</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-2 text-center">Quero saber mais</h2>
+                <p class="text-center text-gray-600 mb-12 text-lg">Entre em contato e descubra como implantar o projeto minha hortinha na sua instituição.</p>
 
                 <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
-                    <form id="contact-form" class="space-y-6">
+                    <form id="contact-form" class="space-y-6" method="POST" action="enviar-email.php">
                         <!-- Nome -->
                         <div>
                             <label for="name" class="block text-gray-700 font-bold mb-2">Nome Completo:</label>
@@ -440,9 +442,9 @@
                                 required
                             >
                                 <option value="">Selecione um assunto</option>
-                                <option value="duvida-plantio">Dúvida sobre plantio</option>
-                                <option value="duvida-adubo">Dúvida sobre adubação</option>
-                                <option value="duvida-produto">Dúvida sobre produtos</option>
+                                <option value="duvida-plantio">Dúvida o projeto</option>
+                                <option value="duvida-adubo">Informações sobre o Kit</option>
+                                <option value="duvida-produto">Implantação do Projeto</option>
                                 <option value="depoimento">Compartilhar experiência</option>
                                 <option value="outro">Outro</option>
                             </select>
@@ -506,19 +508,22 @@
     <!-- Script para carregamento de header e footer -->
     <script src="static/js/scripts.js"></script>
 
+    <!-- Script do Carrossel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initCarrossel('carousel-container', 'static/carrossel_hortinha');
+        });
+    </script>
+
     <!-- Script do Formulário -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Manipular envio do formulário
+            // Manipular envio do formulário via PHP
             const form = document.getElementById('contact-form');
             if (form) {
                 form.addEventListener('submit', (e) => {
                     e.preventDefault();
                     
-                    // Aqui você poderia adicionar a lógica de envio do formulário
-                    // Por exemplo, fazer uma requisição para um servidor ou usar um serviço como EmailJS
-                    
-                    // Exemplo simples: mostrar mensagem de sucesso
                     const successMessage = document.getElementById('success-message');
                     const errorMessage = document.getElementById('error-message');
                     
@@ -526,25 +531,35 @@
                     successMessage.classList.add('hidden');
                     errorMessage.classList.add('hidden');
                     
-                    // Simular envio (remover em produção)
-                    console.log('Formulário enviado:', {
-                        name: document.getElementById('name').value,
-                        email: document.getElementById('email').value,
-                        phone: document.getElementById('phone').value,
-                        subject: document.getElementById('subject').value,
-                        message: document.getElementById('message').value
+                    // Coletar dados do formulário
+                    const formData = new FormData(form);
+                    
+                    // Enviar via AJAX
+                    fetch('enviar-email.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            successMessage.textContent = data.message;
+                            successMessage.classList.remove('hidden');
+                            form.reset();
+                            
+                            // Esconder mensagem após 5 segundos
+                            setTimeout(() => {
+                                successMessage.classList.add('hidden');
+                            }, 5000);
+                        } else {
+                            errorMessage.textContent = data.message;
+                            errorMessage.classList.remove('hidden');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                        errorMessage.textContent = 'Ocorreu um erro ao enviar a mensagem. Tente novamente.';
+                        errorMessage.classList.remove('hidden');
                     });
-                    
-                    // Mostrar mensagem de sucesso
-                    successMessage.classList.remove('hidden');
-                    
-                    // Limpar o formulário
-                    form.reset();
-                    
-                    // Esconder mensagem após 5 segundos
-                    setTimeout(() => {
-                        successMessage.classList.add('hidden');
-                    }, 5000);
                 });
             }
         });

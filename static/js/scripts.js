@@ -319,3 +319,123 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Função para inicializar carrossel com imagens dinâmicas
+function initCarrossel(containerId, imagemPath) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const slidesContainer = container.querySelector('.carousel-slides');
+    const indicatorsContainer = container.querySelector('.carousel-indicators');
+
+    // Função para carregar imagens dinamicamente até não encontrar mais
+    async function carregarImagens() {
+        let index = 1;
+        let imagensCarregadas = [];
+
+        while (index <= 100) { // Máximo de 100 imagens para evitar loop infinito
+            const nomeImagem = `carousel-${index}.webp`;
+            const urlImagem = `${imagemPath}/${nomeImagem}`;
+
+            try {
+                // Tentar carregar a imagem
+                const response = await fetch(urlImagem, { method: 'HEAD' });
+                
+                if (response.ok) {
+                    imagensCarregadas.push(nomeImagem);
+                    index++;
+                } else {
+                    // Se não encontrar mais imagens, parar
+                    break;
+                }
+            } catch (error) {
+                // Erro ao tentar carregar, parar de procurar
+                break;
+            }
+        }
+
+        // Se nenhuma imagem foi encontrada, retornar
+        if (imagensCarregadas.length === 0) {
+            console.warn(`Nenhuma imagem encontrada em ${imagemPath}`);
+            return;
+        }
+
+        // Gerar slides dinamicamente
+        imagensCarregadas.forEach((imagem, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide absolute w-full h-full transition-opacity duration-500 ease-in-out';
+            slide.dataset.slide = index;
+            
+            if (index === 0) {
+                slide.classList.add('opacity-100');
+            } else {
+                slide.classList.add('opacity-0');
+            }
+
+            const img = document.createElement('img');
+            img.src = `${imagemPath}/${imagem}`;
+            img.alt = `Minha Hortinha - Imagem ${index + 1}`;
+            img.className = 'w-full h-full object-cover';
+            
+            slide.appendChild(img);
+            slidesContainer.appendChild(slide);
+
+            // Gerar indicadores
+            const indicator = document.createElement('button');
+            indicator.className = 'carousel-indicator w-2 h-2 rounded-full hover:bg-opacity-100 transition-all';
+            indicator.dataset.index = index;
+            
+            if (index === 0) {
+                indicator.classList.add('bg-white', 'bg-opacity-70');
+            } else {
+                indicator.classList.add('bg-white', 'bg-opacity-50');
+            }
+            
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        // Lógica do carrossel
+        let currentSlide = 0;
+        const slides = container.querySelectorAll('.carousel-slide');
+        const indicators = container.querySelectorAll('.carousel-indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => {
+                slide.classList.add('opacity-0');
+                slide.classList.remove('opacity-100');
+            });
+            indicators.forEach(indicator => {
+                indicator.classList.remove('bg-opacity-70');
+                indicator.classList.add('bg-opacity-50');
+            });
+
+            slides[index].classList.remove('opacity-0');
+            slides[index].classList.add('opacity-100');
+            indicators[index].classList.add('bg-opacity-70');
+            indicators[index].classList.remove('bg-opacity-50');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % totalSlides);
+        }
+
+        function prevSlide() {
+            showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        }
+
+        container.querySelector('.carousel-next').addEventListener('click', nextSlide);
+        container.querySelector('.carousel-prev').addEventListener('click', prevSlide);
+
+        container.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+            indicator.addEventListener('click', () => showSlide(index));
+        });
+
+        // Auto-play a cada 5 segundos
+        setInterval(nextSlide, 5000);
+    }
+
+    // Carregar imagens quando o carrossel estiver pronto
+    carregarImagens();
+}
